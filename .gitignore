@@ -1,0 +1,11 @@
+bin
+/bin
+./bin/*
+
+tmp
+/tmp
+./tmp/*
+
+node_modules
+.vscode
+.env
