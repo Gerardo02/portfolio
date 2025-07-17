@@ -1,0 +1,10 @@
+package layout
+
+import "github.com/gerardo02/porfolio/view/components"
+
+templ Home() {
+	@Base() {
+		@components.NavBar()
+		{ children... }
+	}
+}

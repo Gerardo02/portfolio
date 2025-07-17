@@ -1,15 +1,15 @@
 root = "."
 testdata_dir = "testdata"
-tmp_dir = "bin"
+tmp_dir = "tmp"
 
 [build]
   args_bin = []
-  bin = "./bin/app"
-  cmd = "make build"
+  bin = "./tmp/main"
+  cmd = "make reload && go build -o ./tmp/main ./cmd/"
   delay = 1000
   exclude_dir = ["assets", "bin", "vendor", "testdata", "tmp"]
   exclude_file = []
-  exclude_regex = ["_test.go", "_templ.go"]
+  exclude_regex = ["_test.go", ".*_templ.go"]
   exclude_unchanged = false
   follow_symlink = false
   full_bin = ""
@@ -43,9 +43,9 @@ tmp_dir = "bin"
   clean_on_exit = false
 
 [proxy]
-  app_port = 0
-  enabled = false
-  proxy_port = 0
+  app_port = 8080
+  enabled = true
+  proxy_port = 8181
 
 [screen]
   clear_on_rebuild = false

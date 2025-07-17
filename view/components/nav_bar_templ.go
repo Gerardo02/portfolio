@@ -29,7 +29,7 @@ func NavBar() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<nav class=\"flex justify-between gap-10\"><div class=\"bg-stone-300 hover:bg-stone-600 hover:cursor-pointer text-center w-full\">1</div><div class=\"bg-stone-300 hover:bg-stone-600 hover:cursor-pointer text-center w-full\">2</div><div class=\"bg-stone-300 hover:bg-stone-600 hover:cursor-pointer text-center w-full\">3</div><div class=\"bg-stone-300 hover:bg-stone-600 hover:cursor-pointer text-center w-full\">4</div><div class=\"bg-stone-300 hover:bg-stone-600 hover:cursor-pointer text-center w-full\">5</div><div class=\"bg-stone-300 hover:bg-stone-600 hover:cursor-pointer text-center w-full\">6</div></nav>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<nav class=\"flex justify-between gap-10\"><div class=\"bg-stone-700 hover:bg-stone-600 hover:cursor-pointer text-center w-full\">1</div><div class=\"bg-stone-700 hover:bg-stone-600 hover:cursor-pointer text-center w-full\">2</div><div class=\"bg-stone-700 hover:bg-stone-600 hover:cursor-pointer text-center w-full\">3</div><div class=\"bg-stone-700 hover:bg-stone-600 hover:cursor-pointer text-center w-full\">4</div><div class=\"bg-stone-700 hover:bg-stone-600 hover:cursor-pointer text-center w-full\">5</div><div class=\"bg-stone-700 hover:bg-stone-600 hover:cursor-pointer text-center w-full\">6</div></nav>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

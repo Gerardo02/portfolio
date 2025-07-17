@@ -14,7 +14,7 @@ func main() {
 		Home: handler.HomeHandler{},
 	}
 
-	r.GET("/", handler.HandleRenderIndex)
+	r.GET("/", handler.Home.HandleRenderHome)
 
 	r.Run()
 }
