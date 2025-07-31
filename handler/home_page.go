@@ -5,8 +5,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type HomeHandler struct{}
-
 func (h *HomeHandler) HandleRenderHome(c *gin.Context) {
 	err := render(c, home.Home())
 	if err != nil {

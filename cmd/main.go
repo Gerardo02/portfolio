@@ -1,20 +1,13 @@
 package main
 
 import (
-	"github.com/gerardo02/porfolio/handler"
-	"github.com/gin-gonic/gin"
+	"log"
+
+	"github.com/gerardo02/porfolio/cmd/api"
 )
 
 func main() {
-	r := gin.Default()
-
-	r.Static("/static", "./public")
-
-	handler := handler.Handler{
-		Home: handler.HomeHandler{},
+	if err := api.Start(); err != nil {
+		log.Fatal(err)
 	}
-
-	r.GET("/", handler.Home.HandleRenderHome)
-
-	r.Run()
 }
