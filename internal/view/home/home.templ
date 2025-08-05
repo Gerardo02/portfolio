@@ -1,0 +1,15 @@
+package home
+
+import "github.com/gerardo02/porfolio/internal/view/layout"
+
+templ Home() {
+	@layout.Home() {
+		<div class="font-medium">hola que dices pues</div>
+	}
+}
+
+templ Index() {
+	@layout.Home() {
+		<div class="font-medium">No pues que perron</div>
+	}
+}
