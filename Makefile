@@ -5,15 +5,15 @@ templ:
 	@templ generate --watch --proxy=http://localhost:8080 --cmd="make"
 
 tailwind:
-	@tailwindcss -i ./view/css/index.css -o ./public/css/output.css --watch
+	@tailwindcss -i ./internal/view/css/index.css -o ./public/css/output.css --watch
 
 reload:
-	@tailwindcss -i ./view/css/index.css -o ./public/css/output.css
 	@templ generate 
+	@tailwindcss -i ./internal/view/css/index.css -o ./public/css/output.css
 
 build:
 	@templ generate
-	@tailwindcss -i ./view/css/index.css -o ./public/css/output.css
+	@tailwindcss -i ./internal/view/css/index.css -o ./public/css/output.css
 	@go build -o bin/app cmd/main.go
 
 install:
