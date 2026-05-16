@@ -1,6 +1,7 @@
 package server
 
 import (
+	"crypto/rand"
 	"net/http"
 
 	"portafolio/cmd/web"
@@ -38,4 +39,21 @@ func (s *Server) todoHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	templ.Handler(web.TodoApp()).ServeHTTP(w, r)
+}
+
+func (s *Server) newTaskHandler(w http.ResponseWriter, r *http.Request) {
+	task := r.FormValue("task")
+
+	if task == "" {
+		http.Error(w, "no task found in request", http.StatusBadRequest)
+		return
+	}
+
+	key := rand.Text()
+
+	web.Tasks[key] = task
+
+	web.NoTask().Render(r.Context(), w)
+
+	templ.Handler(web.Task(key, task)).ServeHTTP(w, r)
 }

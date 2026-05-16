@@ -30,6 +30,8 @@ func (s *Server) RegisterRoutes() http.Handler {
 	r.Get("/todo", s.todoHandler)
 	r.Get("/projects", s.projectsHandler)
 
+	r.Post("/task", s.newTaskHandler)
+
 	r.Post("/hello", web.HelloWebHandler)
 
 	return r
