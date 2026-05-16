@@ -1,0 +1,13 @@
+package web
+
+import "portafolio/cmd/web/components"
+
+templ TodoContent() {
+	<div class="px-6 py-8">A Todo App for good measure</div>
+}
+
+templ TodoApp() {
+	@components.Base() {
+		@TodoContent()
+	}
+}

@@ -1,0 +1,13 @@
+package web
+
+import "portafolio/cmd/web/components"
+
+templ AboutContent() {
+	<div class="px-6 py-8">About page</div>
+}
+
+templ About() {
+	@components.Base() {
+		@AboutContent()
+	}
+}

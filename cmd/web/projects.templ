@@ -1,0 +1,13 @@
+package web
+
+import "portafolio/cmd/web/components"
+
+templ ProjectsContent() {
+	<div class="px-6 py-8">Project page</div>
+}
+
+templ Projects() {
+	@components.Base() {
+		@ProjectsContent()
+	}
+}
