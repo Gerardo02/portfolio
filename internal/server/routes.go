@@ -31,6 +31,7 @@ func (s *Server) RegisterRoutes() http.Handler {
 	r.Get("/projects", s.projectsHandler)
 
 	r.Post("/task", s.newTaskHandler)
+	r.Delete("/task/{key}", s.deleteTask)
 
 	r.Post("/hello", web.HelloWebHandler)
 
