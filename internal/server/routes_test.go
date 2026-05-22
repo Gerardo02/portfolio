@@ -1,7 +1,9 @@
 package server
 
 import (
+	"encoding/json"
 	"io"
+	"log"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -28,4 +30,20 @@ func TestHandler(t *testing.T) {
 	if expected != string(body) {
 		t.Errorf("expected response body to be %v; got %v", expected, string(body))
 	}
+}
+
+func (s *Server) testHandler(w http.ResponseWriter, r *http.Request) {
+	payload := struct {
+		Message string `json:"message"`
+	}{Message: "Hello World"}
+	data, err := json.Marshal(payload)
+	if err != nil {
+		log.Printf("Failed to marshal JSON response: %v", payload)
+		w.WriteHeader(500)
+		return
+	}
+
+	w.Header().Add("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	w.Write(data)
 }

@@ -22,18 +22,27 @@ func (s *Server) RegisterRoutes() http.Handler {
 		MaxAge:           300,
 	}))
 
-	fileServer := http.FileServer(http.FS(web.Files))
-	r.Handle("/assets/*", fileServer)
+	r.Handle("/assets/*", http.FileServer(http.FS(web.Files)))
 
-	r.Get("/", s.homeHandler)
-	r.Get("/about", s.aboutHandler)
-	r.Get("/todo", s.todoHandler)
-	r.Get("/projects", s.projectsHandler)
+	r.Group(func(r chi.Router) {
+		r.Get("/", s.homeHandler)
+		r.Get("/about", s.aboutHandler)
+		r.Get("/todo", s.todoHandler)
+		r.Get("/projects", s.projectsHandler)
 
-	r.Post("/task", s.newTaskHandler)
-	r.Delete("/task/{key}", s.deleteTask)
+		r.Post("/task", s.newTaskHandler)
+		r.Delete("/task/{key}", s.deleteTask)
+	})
 
-	r.Post("/hello", web.HelloWebHandler)
+	r.Route("/api", func(r chi.Router) {
+		r.Route("/auth", func(r chi.Router) {
+			r.Get("/login/{provider}", s.loginHandler)
+			r.Get("/logout/{provider}", s.logoutHandler)
+			r.Get("/{provider}/callback", s.callbackHandler)
+		})
+
+		r.Post("/task", s.newTaskHandler)
+	})
 
 	return r
 }

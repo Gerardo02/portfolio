@@ -3,7 +3,15 @@ package web
 import "portafolio/cmd/web/components"
 
 templ ProjectsContent() {
-	<div class="px-6 py-8">Project page</div>
+	<div class="px-6 py-8">
+		<div class="grid grid-cols-3 gap-4">
+			<div class="bg-zinc-900 border border-zinc-700 rounded-lg p-5">
+				<p class="text-2xl font-bold mb-2">Interpreter Go</p>
+				<p class="mb-2">This project is a simple programing language made with Go. It was a fun experiment and taught me a lot about parsers and how languages like Javscript and Python originally worked.</p>
+				<a class="text-xl underline" href={ templ.SafeURL("https://github.com/Gerardo02/interpreter-go") }>Repo</a>
+			</div>
+		</div>
+	</div>
 }
 
 templ Projects() {

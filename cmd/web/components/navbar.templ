@@ -24,7 +24,12 @@ templ navLink(item navItem) {
 
 templ NavBar() {
 	<header class="w-full bg-black px-6 py-4 flex items-center justify-between border-b border-white/10">
-		<span class="text-white font-semibold tracking-wide">GJC</span>
+		<a
+			href={ templ.SafeURL("/api/auth/login/google") }
+			class="p-2 bg-zinc-800 border border-zinc-700 rounded-lg hover:bg-zinc-700 hover:cursor-pointer"
+		>
+			Login
+		</a>
 		<nav class="hidden md:flex items-center gap-8">
 			for _, item := range navLinks {
 				@navLink(item)
